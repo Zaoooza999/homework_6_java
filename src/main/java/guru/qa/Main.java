@@ -1,32 +1,61 @@
 package guru.qa;
 
+import java.awt.*;
+import java.util.HashSet;
+import java.util.Set;
+
 public class Main {
     public static void main(String[] args) {
+        Human dima = new Human("Alex", 23, true);
+        Human arkadiy = new Human("Alex", 24, false);
+//        System.out.println(dima);
+//        dima = dima.incrementAge();
+//        System.out.println(dima);
+//        Human.sayHello();
+//        List<String> lectures =
+//                new ArrayList<>();
+//        lectures.add("git");
+//        lectures.add("java");
+//        lectures.add("files");
+//        lectures.add("junit");
+//        int hours = 12;
+//        String hello = "Hello";
+//        Human.printSomeValues(hours, hello, lectures);
+//        for (String lectureName : lectures) {
+//            if (lectureName.startsWith("j")) {
+//                System.out.println(lectureName);
+//                return;
+//            }
+//        }
+        if (dima.equals(arkadiy)) {
+            System.out.println("ok");
+            SomeStringify obj = new SomeStringify("test");
+            Set<Object> set = new HashSet<>();
+            set.add(obj);
+            String s = "test";
+            System.out.println("obj.equals(str): " + obj.equals(s));  // true
+            System.out.println("str.equals(obj): " + s.equals(obj));
+            System.out.println(set.contains(s));
+            ColorPoint p1 = new ColorPoint(1, 2, Color.RED);
+            Point p2 = new Point(1, 2);
+            ColorPoint p3 = new ColorPoint(1, 2, Color.BLUE);
 
-        int a = 7;
-        double b = 5.5;
-        double c = a + b;
-        int d = (int)(c - b);
-        System.out.println("c=" + c);
-        if (d == a) {System.out.println("d=" + d);}
-        double e = d * c;
-        System.out.println("e=" + d + "*" + c + "=" + e);
-        double f = e / a;
-        System.out.println("f=" + e + "/" + a + "=" + f);
-        double g = a % b;
-        System.out.println("g=" + a + "%" + b + "=" + g);
-        System.out.println("7^2="+Math.pow(a,2));
-        int x = 2;
-        double y = 3.5;
-        double z = 1;
-        double p = x + y - z / x * y % x;
-        if (p == 2 + 3.5 - 1.75) {System.out.println("p="+p);}
-        if (a<b){System.out.println("7<5.5");}
-        else if (z>c){System.out.println("1>12.5");}
-        else {System.out.println("7>5.5\n12.5>1");}
-        if (a<=b || !(c>=e)) {System.out.println("7<=5.5 или 12.5<=87.5");}
-        float q = 3.2e38f;
-        float inf = (float)Math.pow(q,2);
-        System.out.println(inf);
+            System.out.println(p1.equals(p2));
+            System.out.println(p2.equals(p3));
+            System.out.println(p1.equals(p3));
+            System.out.println(p1.asPoint().equals(p2));
+            System.out.println(p2.equals(p1.asPoint()));
+            String book1 = "Java";
+            String book2 = "Selenide";
+            String book3 = "Java";
+            System.out.println(book1.hashCode()+" "+book2.hashCode()+" "+book3.hashCode());
+            System.out.println(book1.hashCode()==book2.hashCode());
+            System.out.println(book1.hashCode()==book3.hashCode());
+            String car = "merc";
+            int year = 1970;
+            LuxuryAuto merc = new LuxuryAuto("merc", 1970, 20000);
+            System.out.println(car.hashCode()+1970+20000);
+            System.out.println(merc.hashCode());
+        }
     }
 }
